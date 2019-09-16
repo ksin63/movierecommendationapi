@@ -28,14 +28,14 @@ namespace MovieRecomendationApp.Controllers
         {
             try {
                 string outPut = string.Empty;
-                if (input?.MovieSelection == null || input?.MovieSelection.Split(':').Length != 2)
+                if (input?.inputs?.movieSelection?.value == null || input?.inputs?.movieSelection?.value.Split(':').Length != 2)
                 {
                     return BadRequest("Input data format error");
                 }
                 var movieRatingTestInput = new MovieRating
                 {
-                    userId = Int32.Parse(input.MovieSelection.Split(':')[0]),
-                    movieId = Int32.Parse(input.MovieSelection.Split(':')[1])
+                    userId = Int32.Parse(input?.inputs?.movieSelection?.value.Split(':')[0]),
+                    movieId = Int32.Parse(input?.inputs?.movieSelection?.value.Split(':')[1])
                 };
                 MLContext mLContext = new MLContext();
                 DataViewSchema modelSchema;
