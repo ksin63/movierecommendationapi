@@ -25,10 +25,14 @@ Building a docker image
 
 From root folder -> change directory to MovieRecomendationApp [cd MovieRecomendationApp/]
 
-docker build --tag {reposirotyname}/{imagename}:v1.0.0 .
+```
+docker build --tag {repositoryname}/{imagename}:v1.0.0 .
+```
 
 Run the docker image
 
-docker run -p 8080:80 -it {reposirotyname}/{imagename}:v1.0.0
+```
+docker run -p 8080:80 -it {repositoryname}/{imagename}:v1.0.0
+```
 
 test localy browse http://localhost:8080/api/recommendation/
