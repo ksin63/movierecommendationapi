@@ -8,9 +8,18 @@ Supported Hosting Infrastructure
 Request Url: https://{HostUrl}/api/recommendation/execute
 
 Request Payload:
+```
 {
-	"movieSelection": "6:10"
+    "timestamp": "2019-09-16T04:33:55.8154131Z",
+    "inputs": {
+        "movieSelection": {
+            "timestamp": "2019-09-16T04:33:55.8154131Z",
+            "value": "6:10",
+            "quality": 0
+        }
+    }
 }
+```
 
 Building a docker image
 
