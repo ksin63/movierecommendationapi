@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.ML;
 using MovieRecomendationApp.Model;
 using MovieRecommender.Models;
+using Newtonsoft.Json.Linq;
+using System;
+using System.IO;
 
 namespace MovieRecomendationApp.Controllers
 {
@@ -51,8 +47,15 @@ namespace MovieRecomendationApp.Controllers
                 {
                     outPut = String.Concat(movieRatingTestInput.userId, ":", movieRatingTestInput.movieId, ":", false);
                 }
+                dynamic outputResponse = new JObject();
+                dynamic outputBlock = new JObject(); 
+                dynamic outputSubBlock = new JObject();
+                outputSubBlock.value = outPut;
+                outputSubBlock.quality = 0;
+                outputBlock.recomendation = outputSubBlock;
+                outputResponse.outputs = outputBlock;
 
-                return Ok(outPut);
+                return Ok(outputResponse);
             } catch(Exception ex)
             {
                 throw ex;
